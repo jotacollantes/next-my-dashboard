@@ -10,7 +10,6 @@ interface Props {
 
 
 export async function generateMetadata({ params }:Props): Promise<Metadata> {
-
   try {
     const { id, name } = await getPokemon(params.id);
   
@@ -30,7 +29,7 @@ export async function generateMetadata({ params }:Props): Promise<Metadata> {
 
 const getPokemon = async(id: string): Promise<Pokemon> => {
 
-
+console.log(`se busca el pokemon ${id}`)
   try {
     const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${ id }`,{
       cache: 'force-cache'// TODO: cambiar esto en un futuro
@@ -44,16 +43,13 @@ const getPokemon = async(id: string): Promise<Pokemon> => {
     return pokemon;
     
   } catch (error) {
-    notFound();
+        notFound();
   }
 
 }
 
-
-
-
-export default async function PokemonPage({ params }: Props) {
-
+const PokemonPage=async({ params }: Props) =>{
+ console.log("Entro al componente")
   const pokemon = await getPokemon(params.id);
 
 
@@ -154,3 +150,5 @@ export default async function PokemonPage({ params }: Props) {
     </div>
   );
 }
+
+export default PokemonPage

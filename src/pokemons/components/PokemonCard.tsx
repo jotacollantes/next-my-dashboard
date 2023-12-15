@@ -24,6 +24,7 @@ export const PokemonCard = ({ pokemon }:Props) => {
               width={100}
               height={100}
               alt={ pokemon.name }
+              //Las imagenes seran cargadas bajo demanda
               priority={ false }
             />
 
