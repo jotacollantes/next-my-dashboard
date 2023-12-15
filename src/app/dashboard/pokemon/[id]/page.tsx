@@ -10,11 +10,10 @@ interface Props {
 //! En build time
 export async function generateStaticParams() {
 
-  const static151Pokemons = Array.from({ length: 151 }).map( (v, i) => `${i + 1}` );
+  //const static151Pokemons = Array.from({ length: 151 }).map( (v, i) => `${i + 1}` );
 
-  return static151Pokemons.map( id => ({
-    id: id
-  }));
+  //return static151Pokemons.map( id => ({id: id}));
+  return Array.from({ length: 151 }).map( (v, i) =>({id: `${i + 1}`}) )
 
   // return [
   //   { id: '1' },
