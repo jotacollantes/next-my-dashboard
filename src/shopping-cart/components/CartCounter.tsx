@@ -16,14 +16,16 @@ export interface CounterResponse {
 
 const getApiCounter = async():Promise<CounterResponse> => {
   const data = await fetch('/api/counter').then( res => res.json() );
+  //console.log({data})
   return data
 }
 
 
 
 export const CartCounter = ({  value = 0 }: Props) => {
-
+  //Asignamos a la variable count el valor inicial del state que esta en el slice ocunter
   const count = useAppSelector( state => state.counter.count );
+  //Para ejecutar las acciones del reducer que esta en  slice counter
   const dispatch = useAppDispatch();
 
   // useEffect(() => {
