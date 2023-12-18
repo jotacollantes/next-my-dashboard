@@ -45,7 +45,8 @@ const pokemonsSlice = createSlice({
       const pokemon = action.payload;
       const { id } = pokemon;
 
-      if ( !!state.favorites[id] ) {
+      //if ( !!state.favorites[id] ) {
+        if ( state.favorites[id]!==undefined ) {
         delete state.favorites[id];
         // return;
       } else {
